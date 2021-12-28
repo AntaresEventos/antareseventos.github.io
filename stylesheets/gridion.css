@@ -1,0 +1,599 @@
+/*============================================
+
+Gridion CSS by SONHLAB.com - version 1.0
+Website: http://sonhlab.com
+Documentation: http://docs.sonhlab.com/
+
+
+build - 031
+============================================*/
+.gridion {
+	margin: 15px auto;
+}
+
+.gridion-item-holder {
+	position: relative;
+	-webkit-column-gap: 0px !important;
+	column-gap: 0px !important;
+}
+
+.gridion-item .gridion-item-frame {
+	display: block;
+}
+.gridion-item-frame {
+	cursor: pointer;
+	text-decoration: none;
+	margin:0;
+	font-weight: normal;
+}
+.gridion-item .gridion-item-frame * {
+	cursor:pointer !important;
+}
+
+.gridion-item img {
+	display:block;
+	width: 100%;
+}
+.gridion-none {
+	display: none;
+}
+
+
+/* Start Grid Content */
+.gridion-content-holder {
+	opacity: 0;
+	position:fixed;
+	animation-name: BgfadeIn;
+	animation-duration: 0.5s;
+	animation-fill-mode: both;
+}
+
+.gridion-content-holder > .gridion-content {
+	position: fixed;
+	z-index:9998;
+	width: 100%;
+	height:100%;
+	top:0px;
+	left: 0;
+	top: -9999px;
+	animation-duration: 0.5s;
+	animation-fill-mode: both;
+	animation-name: BgfadeOut;
+}
+
+.gridion-closebt-holder,
+.gridion-closebt-holder-right {
+	position: fixed;
+	top:0;
+	height:32px;
+	width:32px;
+	z-index:99999;
+	display:none;
+}
+.gridion-closebt-holder {
+	left: 0
+}
+.gridion-closebt-holder-right {
+	right: 0;
+}
+.gridion-circle-btn {
+	width: 32px;
+	height: 32px;
+}
+.gridion-close-holder {
+	position: fixed;
+	z-index: 9997;
+	width: 100%;
+	height:100%;
+	left: 0;
+	top: -200%;
+}
+.gridion-closebt {
+	display:block;
+	cursor: pointer;
+	height: 100%;
+	width: 100%;
+	margin:0;
+	padding:0;
+	position: relative;
+}
+.gridion-close-icon {
+	display: block;
+	height:16px;
+	width: 16px;
+	padding:8px;
+	font-size:16px;
+	transition: font-size 2s;
+}
+.gridion-closebt:hover .f-100 {
+	text-shadow: 0 0 30px #ffffff;
+}
+
+
+/* Start Gridion Content Styles */
+.gridion-content-style-center {
+	position:relative;
+	height:80%;
+	width:80%;
+	left:10%;
+	top:10%;
+	overflow:auto;
+	max-height:100%;
+	z-index:9999;
+	animation-duration: 0.5s;
+	animation-fill-mode: both;
+	box-shadow: 0 4px 12px 4px rgba(0, 0, 0, 0.2), 0 6px 18px 6px rgba(0, 0, 0, 0.1);
+}
+.gridion-content-style-left {
+	position:relative;
+	width: 90%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	overflow:auto;
+	max-height:100%;
+	z-index:9999;
+	animation-duration: 0.5s;
+	animation-fill-mode: both;
+	box-shadow: 0 4px 12px 4px rgba(0, 0, 0, 0.2), 0 6px 18px 6px rgba(0, 0, 0, 0.1);
+}
+.gridion-content-style-right {
+	position:relative;
+	width: 90%;
+	height: 100%;
+	top: 0;
+	left: 10%;
+	overflow:auto;
+	max-height:100%;
+	z-index:9999;
+	animation-duration: 0.5s;
+	animation-fill-mode: both;
+	box-shadow: 0 4px 12px 4px rgba(0, 0, 0, 0.2), 0 6px 18px 6px rgba(0, 0, 0, 0.1);
+}
+.gridion-content-style-photo {
+	overflow:hidden;
+	z-index:9998;
+	position: relative;
+	width: 80%;
+	height: 80%;
+	top:10%;
+	left:10%;
+	animation-duration: 0.5s;
+	animation-fill-mode: both;
+}
+.gridion-content-style-photo > .gridion-content-container {
+	position: relative;
+	overflow:auto;
+	height: 100%;
+	width: 100%;
+	overflow:hidden;
+}
+.gridion-content-style-photo > .gridion-content-container .gridion-content-row {
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	position:relative;
+	display:block;
+	margin:auto;
+	text-align:center;
+	overflow:hidden;
+}
+.gridion-content-style-photo > .gridion-content-container > .gridion-content-row > img {
+	max-height: 100%;
+	max-width: 100%;
+	position: absolute;
+	left: 50%;
+	top:50%;
+	transform: translate(-50%, -50%);
+	display:block;
+	margin: auto;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+.gridion-content-row {
+	padding: 30px 15px;
+	position: relative;
+	
+}
+/* End Gridion Content Styles */
+
+
+
+/* Start Controller */
+.gridion > .gridion-content-holder input[name=gridion-switch][type=checkbox]:checked  + .gridion-content {
+	top:0;
+	animation-name: fadeIn;
+}
+.gridion > .gridion-content-holder input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-close-holder {
+	top:0;
+}
+.gridion > .gridion-content-holder input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-ontop {
+	display:block;
+}
+/* End Controller */
+
+
+
+/* Start Content Showing Effects */
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content >  .gridion-effect-fade {
+	animation-name: fadeIn;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-pulse {
+	animation-name: pulse;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-flash {
+	animation-name: flash;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-rubberBand {
+	animation-name: rubberBand;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-shake {
+	animation-name: shake;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-swing {
+	animation-name: swing;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-tada {
+	animation-name: tada;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-wobble {
+	animation-name: wobble;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-jello {
+	animation-name: jello;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-bounce {
+	animation-name: bounce;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-bounceIn {
+	animation-name: bounceIn;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-bounceLeft {
+	animation-name: bounceInLeft;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-bounceRight {
+	animation-name: bounceInRight;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-bounceUp {
+	animation-name: bounceInUp;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-bounceDown {
+	animation-name: bounceInDown;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-flipX {
+	animation-name: flipInX;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-flipY {
+	animation-name: flipInY;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-lightSpeed {
+	animation-name: lightSpeedIn;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-rotate {
+	animation-name: rotateIn;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-rotateUpLeft {
+	animation-name: rotateInUpLeft;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-rotateDownLeft {
+	animation-name: rotateInDownLeft;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-rotateUpRight {
+	animation-name: rotateInUpRight;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-rotateDownRight {
+	animation-name: rotateInDownRight;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-slideUp {
+	animation-name: slideInUp;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-slideDown {
+	animation-name: slideInDown;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-slideLeft {
+	animation-name: slideInLeft;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-slideRight {
+	animation-name: slideInRight;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-jackBox {
+	animation-name: jackInTheBox;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-roll {
+	animation-name: rollIn;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-zoom {
+	animation-name: zoomIn;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-zoomLeft {
+	animation-name: zoomInLeft;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-zoomRight {
+	animation-name: zoomInRight;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-zoomUp {
+	animation-name: zoomInUp;
+}
+.gridion > .gridion-content-holder > input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-effect-zoomDown {
+	animation-name: zoomInDown;
+}
+/* End Content Effects - IN */
+
+
+
+
+/* START ANIMATION EFFECTS */
+.click-ripple {
+	position:relative;
+	overflow:hidden;
+	transform:translate3d(0,0,0);
+}
+.click-ripple:after{
+	content:"";
+	display:block;
+	position:absolute;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	background-image:radial-gradient(circle,#000 10%,transparent 10.01%);
+	background-repeat:no-repeat;
+	background-position:50%;
+	transform:scale(10,10);
+	opacity:0;
+	transition:transform 0.5s,opacity 1s;
+	pointer-events:none;
+}
+.click-ripple:active:after{
+	transform:scale(0,0);
+	opacity:.2;
+	transition:0s;
+}
+@keyframes BgfadeIn {
+	0% { opacity: 0;  }
+	99% { opacity: 0; }
+	100% { opacity: 1; }
+}
+@keyframes BgfadeOut {
+	0% { opacity: 1; top: 0;  }
+	99% { opacity: 0; top: 0; }
+	100% { opacity: 0; top: -9999px; }
+}
+
+
+/*===== START IMAGE HOVER ANIMATION =====*/
+.hover-zoomIn {
+	overflow: hidden;
+}
+.hover-zoomIn img {
+	transform: scale(1);
+	-webkit-transition: transform 1s;
+    transition: transform 1s;
+}
+.hover-zoomIn:hover img {
+	transform: scale(1.2);
+	-webkit-transition: transform 1s;
+    transition: transform 1s;
+}
+
+.hover-zoomOut {
+	overflow: hidden;
+}
+.hover-zoomOut img {
+	transform: scale(1.2);
+	-webkit-transition: transform 1s;
+    transition: transform 1s;
+}
+.hover-zoomOut:hover img {
+	transform: scale(1);
+	-webkit-transition: transform 1s;
+    transition: transform 1s;
+}
+
+.hover-vignetteOut {
+	position: relative;
+	overflow:hidden;
+}
+.hover-vignetteOut:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	box-shadow: 0 0 20rem rgba(0,0,0,0.8) inset;
+	-webkit-transition: box-shadow 1s;
+    transition: box-shadow 1s;
+}
+.hover-vignetteOut:hover:after{
+	content: "";
+	box-shadow: 0 0 0rem rgba(0,0,0,0) inset;
+	-webkit-transition: box-shadow 1s;
+    transition: box-shadow 1s;
+}
+/*===== END IMAGE HOVER ANIMATION =====*/
+/* END ANIMATION EFFECTS */
+
+
+
+/* Start Responsive Layout */
+@media screen and (max-width: 768px) {
+	.gridion-content-style-center {
+		height: 100%;
+		width: 100%;
+		left: 0;
+		top:0;
+	}
+	.gridion-content-style-photo {
+		width: 90%;
+		height: 90%;
+		top: 5%;
+		left: 5%;
+	}
+	.gridion > .gridion-content-holder input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-closebt-holder {
+		display:block;
+	}
+	.gridion > .gridion-content-holder input[name=gridion-switch][type=checkbox]:checked  + .gridion-content > .gridion-closebt-holder-right {
+		display:block;
+	}
+	.gridion-content > .gridion-closebt-holder {
+		height: 32px;
+		width: 32px;
+	}
+	.gridion-content .gridion-close-icon {
+		height:16px;
+		width: 16px;
+		padding:8px;
+		font-size:16px;
+	}
+	
+}
+
+
+@media (min-width: 576px) {
+	.card-columns {
+		-webkit-column-count: 2;
+		-moz-column-count: 2;
+		column-count: 2;
+		-webkit-column-gap: 0.75rem;
+		column-gap: 0.75rem;
+	}
+	.card-columns .card {
+		display: block;
+		/*overflow: hidden;*/
+		break-inside: avoid-column;
+		-webkit-column-break-inside: avoid;
+		page-break-inside: avoid;
+	}
+	.max-col-2 {
+		-webkit-column-count: 2 !important;
+		-moz-column-count: 2 !important;
+		column-count: 2 !important;
+	}
+	.gridion-content-style-left {
+		width: 80%;
+	}
+	.gridion-content-style-right {
+		width: 80%;
+		left: 20%;
+	}
+}
+
+@media (min-width: 768px) {
+	.card-columns {
+		-webkit-column-count: 3;
+		-moz-column-count: 3;
+		column-count: 3;
+	}
+	.max-col-3 {
+		-webkit-column-count: 3 !important;
+		-moz-column-count: 3 !important;
+		column-count: 3 !important;
+	}
+	.gridion-content-style-left {
+		width: 70%;
+	}
+	.gridion-content-style-right {
+		width: 70%;
+		left: 30%;
+	}
+}
+
+@media (min-width: 992px) {
+	.card-columns {
+		-webkit-column-count: 4;
+		-moz-column-count: 4;
+		column-count: 4;
+	}
+	.max-col-4 {
+		-webkit-column-count: 4 !important;
+		-moz-column-count: 4 !important;
+		column-count: 4 !important;
+	}
+	.gridion-content-style-left {
+		width: 60%;
+	}
+	.gridion-content-style-right {
+		width: 60%;
+		left: 40%;
+	}
+}
+
+@media (min-width: 1200px) {
+	.card-columns {
+		-webkit-column-count: 5;
+		-moz-column-count: 5;
+		column-count: 5;
+	}
+	.gridion-content-style-left {
+		width: 50%;
+	}
+	.gridion-content-style-right {
+		width: 50%;
+		left: 50%;
+	}
+}
+.card-shadow {
+	box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.20);
+}
+
+/*
+.gridion-no-gap {
+	-webkit-column-gap: 0px !important;
+	column-gap: 0px !important;
+}
+*/
+.gridion-item-holder .card {
+	margin:0px;
+	border-radius: 0px;
+	border: 0!important;
+}
+.gridion-item-holder .card-img {
+	border-radius: 0px;
+}
+.gridion-card-gutter {
+	padding: 0.75rem;
+}
+.gridion-card-frame {}
+
+/* End Responsive Layout */
+
+
+
+/* MISC */
+.content-rating {
+	height: 48px;
+	display: block;
+}
+.content-rating > img {
+	width: 24px;
+	height: 24px;
+	margin: 12px 0;
+	display:inline-block;
+}
+.gridion-content-row a {
+	text-decoration: none !important;
+}
+.gridion-img-fluid {
+	display:block;
+	width: 100%;
+}
+.gridion-img-fluid img {
+	width: 100%;
+	display:block;
+}
+.gridion-content-row .mb-30 {
+	margin-bottom: 30px;
+	display: block;
+}
+.pad-5 { padding: 5px; }
+.w-10p { width: 10%; }
+.w-100p { /* Full Width */
+	width: 100%;
+	height: auto;
+}
+.f-100 { /* Font size 100 */
+	font-size: 100px;
+	width: auto;
+	height: auto;
+	transition: text-shadow 1s;
+}
