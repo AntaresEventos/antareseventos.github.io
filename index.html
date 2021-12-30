@@ -47,7 +47,9 @@
   <link href="/stylesheets/gmap.css" rel="stylesheet">
   <link href="/stylesheets/crossfade.css" rel="stylesheet">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
 
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script type="text/javascript">
       (function() {
@@ -584,11 +586,13 @@
 
               this.frmReasonDummy.value = frmMotivo;
 
-              emailjs.sendForm('service_s0a4u0u', 'template_j2dxo1m', this)
+              emailjs.sendForm('service_9c8dzfc', 'template_j2dxo1m', this)
                   .then(function() {
-                      console.log('SUCCESS!');
+                    console.log('Email successfully sent!');
+                    toastr.success('Seu contato foi enviado com sucesso! Em breve entraremos em contato.', 'Sucesso!');
                   }, function(error) {
-                      console.log(error);
+                    console.log('Oops... ' + error);
+                    toastr.error('Erro ao enviar seu contato, por favor tente novamente ou entre em contato por email, telefone ou WhatsApp.', 'Erro')
                   });
           });
             }
